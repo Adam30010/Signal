@@ -1,0 +1,18 @@
+/* SIGNAL — print stylesheet (linked with media="print" in root layout) */
+@media print {
+  body { background: #fff !important; color: #000 !important; font-size: 11pt !important; }
+  h1, h2, h3, h4 { color: #000 !important; page-break-after: avoid; }
+  .cell, .cell-soft, .meter, .codeblock, .bp-phase, .acc, .tbl, .price-cell,
+  .opp-card, .kpi { border-color: #000 !important; background: #fff !important; box-shadow: none !important; }
+  .meter-value, .score, .d { color: #000 !important; }
+  .acc-panel { display: block !important; }
+  a { color: #000 !important; text-decoration: underline; }
+  a::after { content: ' (' attr(href) ')'; font-size: 9pt; color: #333; }
+  .site-header, .site-footer, .cookie-banner, .back-to-top, .float-contact,
+  .scroll-progress, .skip-link, .btn, .icon-btn, .modal-overlay, .hamburger,
+  .search-modal, .blur-gate::after, .fab { display: none !important; }
+  main, .wrap { max-width: 100% !important; padding: 0 !important; }
+  .grid, .g2, .g3, .g4, .loop-flow { display: block !important; }
+  .loop-flow .node { border: 1px solid #000 !important; margin-bottom: 6px; page-break-inside: avoid; }
+  * { box-shadow: none !important; }
+}
