@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/print.css" media="print" />
-        <link rel="icon" type="image/svg+xml" href={faviconDataUri()} />
+        <link rel="icon" id="favicon" type="image/svg+xml" href={faviconDataUri()} />
         {/* Light-mode brand vars — derived from lib/brand.js */}
         <style>{`[data-theme='light']{--accent:${BRAND.accentLight};--accent-ink:${BRAND.accentInkLight};--accent-dim:${BRAND.accentDimLight};--accent-glow:${BRAND.accentGlowLight};}`}</style>
       </head>

@@ -47,7 +47,7 @@ SIGNAL ships with a **defense-in-depth baseline that is unusual for a first buil
 ### CRITICAL
 
 #### C-01 — Demo admin password ships in the client bundle
-- **Where:** `lib/auth.js` — `DEMO_PASSWORD = process.env.NEXT_PUBLIC_DEMO_ADMIN_PASSWORD || 'signal-admin'`
+- **Where:** `lib/auth.js` — demo credentials `Adam` / `Password123` (env-overridable), compiled into the public JS bundle when configured
 - **Detail:** The fallback password is compiled into the public JS bundle. Any visitor can read it, log into `/admin`, and (in demo mode) read/write the localStorage demo database.
 - **Impact:** Demo-mode admin compromise. **Not** exploitable against a Supabase-backed deployment (the REST API + RLS blocks anonymous writes to `users`/`orders`; `messages` is insert-only).
 - **Fix:** (1) Production builds must fail if `NEXT_PUBLIC_DEMO_ADMIN_PASSWORD` is unset AND Supabase auth is unconfigured (add a build-time check). (2) Replace demo login with Supabase Auth + service-role admin path per `supabase/README.md`. (3) Never use the anon key for admin writes — service role only, server-side.
@@ -95,7 +95,7 @@ SIGNAL ships with a **defense-in-depth baseline that is unusual for a first buil
 - **L-01** — `seedDemoData()` writes to localStorage without explicit consent. Tied to cookie consent; currently seeds on first load. Acceptable for demo; gate behind consent in prod.
 - **L-02** — No `integrity` attributes on the Google Fonts `<link>` (fonts.googleapis.com). SRI for stylesheet preconnects is impractical; low risk, note only.
 - **L-03** — `utm_events` logged without a session identifier; can't correlate campaigns to conversions. Not a security issue; analytics gap.
-- **L-04** — Error messages in demo login reveal the demo password hint ("TRY THE DEMO PASSWORD (signal-admin)"). Fine for demo; **remove in production** (info-disclosure hygiene).
+- **L-04** — The demo login hint below the form discloses the demo credentials ("Adam / Password123"). Fine for demo; **remove in production** (info-disclosure hygiene).
 
 ---
 

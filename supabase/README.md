@@ -21,7 +21,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_KEY
 | Concern | Demo (no env) | Supabase |
 |---|---|---|
 | Tables | localStorage (`signal_db_*`) | Postgres REST |
-| Auth | demo password (`signal-admin`) | swap `lib/auth.js` for `@supabase/ssr` (`signInWithPassword` + `auth.getUser()` for RLS-aware sessions) |
+| Auth | demo login (`Adam` / `Password123`, editable from admin settings) | swap `lib/auth.js` for `@supabase/ssr` (`signInWithPassword` + `auth.getUser()` for RLS-aware sessions) |
 | Geo density | synthetic demo value | real `ST_DWithin` RPC |
 | Uploads | simulated worker | `uploads` rows + object storage (Supabase Storage, presigned PUT) |
 | Analytics | UTM in localStorage | `utm_events` table |

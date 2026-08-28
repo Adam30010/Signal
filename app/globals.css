@@ -7,11 +7,11 @@
 
 :root {
   /* BRAND ACCENT — single signal color for Saturation Meter + CTAs.
-     Replace with the hex from the branding asset when available. */
-  --accent: #00ff9c;
-  --accent-ink: #00150c;          /* text-on-accent */
-  --accent-dim: rgba(0, 255, 156, 0.10);
-  --accent-glow: rgba(0, 255, 156, 0.35);
+     Defaults mirror lib/brand.js (runtime overrides via /admin/settings). */
+  --accent: #ff3300;
+  --accent-ink: #000000;          /* text-on-accent (black keeps AA on orange) */
+  --accent-dim: rgba(255, 51, 0, 0.10);
+  --accent-glow: rgba(255, 51, 0, 0.35);
 
   --bg: #000000;
   --bg-raise: #0a0a0a;
@@ -44,10 +44,10 @@
   --faint: rgba(0, 0, 0, 0.35);
   --line: #000000;
   --line-soft: rgba(0, 0, 0, 0.25);
-  --accent: #00875a;
-  --accent-ink: #ffffff;
-  --accent-dim: rgba(0, 135, 90, 0.10);
-  --accent-glow: rgba(0, 135, 90, 0.25);
+  --accent: #ff3300;
+  --accent-ink: #000000;
+  --accent-dim: rgba(255, 51, 0, 0.10);
+  --accent-glow: rgba(255, 51, 0, 0.25);
 }
 
 *,

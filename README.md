@@ -11,7 +11,7 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-**Admin panel demo:** `/admin` — password `signal-admin` (override via `NEXT_PUBLIC_DEMO_ADMIN_PASSWORD`).
+**Admin panel demo:** `/admin` — username `Adam` / password `Password123` (env overrides: `NEXT_PUBLIC_DEMO_ADMIN_USERNAME` / `NEXT_PUBLIC_DEMO_ADMIN_PASSWORD`). Change email/password from `/admin/settings` → Account & Credentials. Change the site logo + accent color from `/admin/settings` → Branding (applies site-wide instantly).
 
 **Supabase wiring:** copy `.env.example` → `.env.local`, set `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and run `supabase/schema.sql` in the SQL editor. Without env vars the app runs in demo mode (localStorage-backed, zero config). Details: `supabase/README.md`.
 

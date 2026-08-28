@@ -6,6 +6,7 @@ import { login, getSession } from '@/lib/auth';
 
 export default function AdminPage() {
   const router = useRouter();
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
   const [error, setError] = useState('');
@@ -20,11 +21,11 @@ export default function AdminPage() {
 
   const submit = (e) => {
     e.preventDefault();
-    const s = login(password);
+    const s = login(username, password);
     if (s) {
       router.replace('/admin/dashboard');
     } else {
-      setError('INVALID CREDENTIALS — TRY THE DEMO PASSWORD (signal-admin)');
+      setError('INVALID USERNAME OR PASSWORD');
     }
   };
 
@@ -40,6 +41,18 @@ export default function AdminPage() {
         )}
         <form onSubmit={submit} noValidate>
           <div className="field">
+            <label htmlFor="admin-user" className="req">USERNAME</label>
+            <input
+              id="admin-user"
+              type="text"
+              value={username}
+              onChange={(e) => { setUsername(e.target.value); setError(''); }}
+              aria-invalid={!!error}
+              autoComplete="username"
+              autoCapitalize="none"
+            />
+          </div>
+          <div className="field">
             <label htmlFor="admin-pass" className="req">PASSWORD</label>
             <div className="pw-wrap">
               <input
@@ -54,7 +67,10 @@ export default function AdminPage() {
                 {show ? 'HIDE' : 'SHOW'}
               </button>
             </div>
-            <span className="hint">DEMO MODE: USE <b style={{ color: 'var(--accent)' }}>signal-admin</b>. WITH SUPABASE: AUTH VIA supabase.auth (see supabase/README.md).</span>
+            <span className="hint">
+              DEMO CREDENTIALS: <b style={{ color: 'var(--accent)' }}>Adam</b> / <b style={{ color: 'var(--accent)' }}>Password123</b> ·
+              ENV OVERRIDES: NEXT_PUBLIC_DEMO_ADMIN_USERNAME / NEXT_PUBLIC_DEMO_ADMIN_PASSWORD
+            </span>
           </div>
           <button type="submit" className="btn btn-accent btn-block btn-lg">AUTHENTICATE →</button>
         </form>

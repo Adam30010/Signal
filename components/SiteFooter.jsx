@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandMark from '@/components/BrandMark';
 import { LINKS, PRICING, SITE } from '@/lib/site';
 
 const COLS = [
@@ -31,7 +32,7 @@ export default function SiteFooter() {
         <div className="cols">
           <div>
             <p className="brand" style={{ fontSize: '15px' }}>
-              <span className="tick">▮</span>{SITE.name}
+              <BrandMark height={16} />{SITE.name}
             </p>
             <p className="dim small" style={{ marginTop: '10px', maxWidth: '38ch' }}>
               {SITE.tagline} Your existing consumption is a latent skill. We surface it,

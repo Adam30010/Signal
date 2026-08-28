@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useUI } from '@/components/ui/UIProvider';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import BrandMark from '@/components/BrandMark';
 import { LINKS, SITE } from '@/lib/site';
 
 const NAV = [
@@ -37,7 +38,7 @@ export default function SiteHeader() {
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`} style={scrolled ? { boxShadow: '0 1px 0 var(--line-soft)' } : undefined}>
       <div className="wrap inner">
         <Link href="/" className="brand" aria-label={`${SITE.name} home`}>
-          <span className="tick">▮</span>
+          <BrandMark height={18} />
           {SITE.name}
           <span className="faint xs" style={{ letterSpacing: '0.2em' }}>V{SITE.version}</span>
         </Link>
